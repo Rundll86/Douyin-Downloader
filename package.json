@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && eop start"
+    "test": "npm run build && eop start",
+    "build": "tsc -p tsconfig/entry.tsc && webpack"
   },
   "dependencies": {
-    "type-electron": "^1.0.4"
+    "electron-ofp": "^1.0.107",
+    "save-tool": "^1.0.4",
+    "type-electron": "^1.0.4",
+    "typescript": "^5.5.4",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   }
 }
