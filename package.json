@@ -4,5 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tsc && eop start"
+  },
+  "dependencies": {
+    "type-electron": "^1.0.4"
   }
 }
