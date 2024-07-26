@@ -1,15 +1,17 @@
 {
   "name": "douyin-downloader",
-  "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "test": "npm run build && eop start",
     "build": "tsc -p tsconfig/entry.tsc && webpack"
   },
   "dependencies": {
+    "@types/md5": "^2.3.5",
     "@types/node": "^20.14.12",
+    "axios": "^1.7.2",
     "electron-ofp": "^1.0.107",
+    "md5": "^2.3.0",
     "save-tool": "^1.0.4",
+    "ts-loader": "^9.5.1",
     "type-electron": "^1.0.4",
     "typescript": "^5.5.4",
     "webpack": "^5.92.1",

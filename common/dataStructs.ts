@@ -1,15 +1,17 @@
-export type TypeOrNull<T> = T | null;
+export type TypeOrNull<T> = T | undefined;
 export interface Searcher {
-    element: TypeOrNull<string>;
-    classNames: TypeOrNull<string[]>;
-    id: TypeOrNull<string>;
-    attrs: {
+    element?: TypeOrNull<string>;
+    classNames?: TypeOrNull<string[]>;
+    id?: TypeOrNull<string>;
+    attrs?: {
         name: string,
         value: string
     }[];
+    nthChild?: TypeOrNull<number>;
 };
-export interface CrawlRule<T extends HTMLElement = HTMLElement> {
-    field: keyof T;
+export interface CrawlRule {
+    field: string;
     searchers: Searcher[];
     name: string;
+    execute?: ((e: CrawlRule) => void) | string;
 };
