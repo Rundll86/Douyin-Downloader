@@ -52,17 +52,6 @@ app.on("ready", () => {
                 }
             },
             {
-                label: "设置",
-                submenu: [
-                    {
-                        label: "基础配置"
-                    },
-                    {
-                        label: "抓取规则列表"
-                    }
-                ]
-            },
-            {
                 label: "工具",
                 submenu: [
                     {
@@ -81,6 +70,38 @@ app.on("ready", () => {
                             })) {
                                 win.loadURL(url);
                             };
+                        }
+                    },
+                    {
+                        label: "跳转到此作品的下载页面",
+                        click() {
+                            runJSAtWindow(win, () => {
+                                (() => {
+                                    function extractUrls(text: string) {
+                                        const urlRegex = /(https?:\/\/[^\s]+)/g;
+                                        let result = text.match(urlRegex);
+                                        return (result as string[])[0];
+                                    };
+                                    let element = document.querySelectorAll(window.getSelector([
+                                        {
+                                            attrs: [
+                                                {
+                                                    name: "data-e2e",
+                                                    value: "video-share-container"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            element: "button"
+                                        }
+                                    ]))[1];
+                                    console.log(element);
+                                    element.click();
+                                    setTimeout(() => {
+                                        window.open(extractUrls(clipboard.readText()));
+                                    }, 500);
+                                });
+                            });
                         }
                     }
                 ]

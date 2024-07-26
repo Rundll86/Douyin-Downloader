@@ -3,14 +3,16 @@
         "name": "some-app",
         "entry": "entry/dist/entry/src/index.js",
         "files": [],
-        "dirs": [],
+        "dirs": [
+            "entry/dist"
+        ],
         "excludes": []
     },
     "build": {
         "temp": "temp",
         "clean": true,
         "nodeModules": [
-            "type-electron"
+            "."
         ],
         "showTime": false,
         "showConsole": false,
